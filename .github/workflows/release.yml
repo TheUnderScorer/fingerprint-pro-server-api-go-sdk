@@ -11,5 +11,9 @@ jobs:
     with:
       version-command: pnpm exec changeset version && bash ./sync-version.sh
       publish-command: pnpm exec changeset publish && go run generate.go
+      language: golang
+      language-version: '1.21'
+      prepare-command: |
+        go build
     secrets:
       GH_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
