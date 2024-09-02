@@ -9,7 +9,7 @@ jobs:
     name: 'Release project'
     uses: fingerprintjs/dx-team-toolkit/.github/workflows/release-sdk-changesets.yml@feature/custom-changeset-commands
     with:
-      version-command: pnpm exec changeset version && bash ./sync-version.sh
+      version-command: pnpm exec changeset version && bash ./sync-version.sh && go run generate.go
       publish-command: pnpm exec changeset publish && go run generate.go
       language: golang
       language-version: '1.21'
